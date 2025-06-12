@@ -1,0 +1,830 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Cubed: an introduction &#8212; Cubed</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=dbad7223"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'slides/intro/cubed-intro';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Cubed</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">For users</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../user-guide/index.html">User Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/executors.html">Executors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/storage.html">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/memory.html">Memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/reliability.html">Reliability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/optimization.html">Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/scaling.html">Scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/diagnostics.html">Diagnostics</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/index.html">Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/how-to-run.html">How to run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/basic-array-ops.html">Basic array operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/zarr.html">Zarr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/xarray.html">Xarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/rechunking.html">Rechunking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/icechunk.html">Icechunk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/pangeo.html">Pangeo</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.Array.html">cubed.Array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.Array.compute.html">cubed.Array.compute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.Array.rechunk.html">cubed.Array.rechunk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.Array.visualize.html">cubed.Array.visualize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.compute.html">cubed.compute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.visualize.html">cubed.visualize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.from_array.html">cubed.from_array</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.from_zarr.html">cubed.from_zarr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.store.html">cubed.store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.to_zarr.html">cubed.to_zarr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.apply_gufunc.html">cubed.apply_gufunc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.map_blocks.html">cubed.map_blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.map_overlap.html">cubed.map_overlap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.rechunk.html">cubed.rechunk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.nanmean.html">cubed.nanmean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.nansum.html">cubed.nansum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.pad.html">cubed.pad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.random.random.html">cubed.random.random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.Callback.html">cubed.Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.Spec.html">cubed.Spec</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.TaskEndEvent.html">cubed.TaskEndEvent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../generated/cubed.measure_reserved_mem.html">cubed.measure_reserved_mem</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../array-api.html">Python Array API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../why-cubed.html">Why Cubed?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../related-projects.html">Related Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../articles.html">Articles and Presentations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">For developers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../operations.html">Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../computation.html">Computation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/cubed-dev/cubed" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cubed-dev/cubed/edit/main/slides/intro/cubed-intro.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/cubed-dev/cubed/issues/new?title=Issue%20on%20page%20%2Fslides/intro/cubed-intro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Cubed: an introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cubed: an introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#idea">Idea</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#demo">Demo</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#primitives">Primitives</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#design">Design</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#core-and-primitive-operations">Core and Primitive Operations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-map-selection">Example: <code class="docutils literal notranslate"><span class="pre">map_selection</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-reduction">Example: <code class="docutils literal notranslate"><span class="pre">reduction</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-plan">Computation plan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">Optimization</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-an-advanced-example">Optimization: an advanced example</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#memory">Memory</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#peak-memory">Peak memory</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimes">Runtimes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-timeline">Example timeline</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scalability-and-robustness">Scalability and robustness</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#xarray-integration">Xarray integration</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#try-out-cubed">Try out Cubed!</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="cubed-an-introduction">
+<h1>Cubed: an introduction<a class="headerlink" href="#cubed-an-introduction" title="Link to this heading">#</a></h1>
+<p>Tom White, November 2024</p>
+</section>
+<section id="idea">
+<h1>Idea<a class="headerlink" href="#idea" title="Link to this heading">#</a></h1>
+<p>Use Zarr as the underlying intermediate persistent storage between array operations.</p>
+<p><img alt="Cubed idea" src="../../_images/cubed-idea.svg" /></p>
+<p>Tasks operate on Zarr chunks.</p>
+<p>Tasks are embarassingly parallel, and their runtime memory can be tightly controlled.</p>
+</section>
+<section id="demo">
+<h1>Demo<a class="headerlink" href="#demo" title="Link to this heading">#</a></h1>
+<p>Cubed implements the <a class="reference external" href="https://data-apis.org/array-api/latest/">Python Array API standard</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cubed.array_api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xp</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">asarray</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]],</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that we specify chunks, just like in Dask Array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">asarray</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cubed uses lazy evaluation, so nothing has been computed yet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 2,  3,  4],
+       [ 5,  6,  7],
+       [ 8,  9, 10]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="primitives">
+<h1>Primitives<a class="headerlink" href="#primitives" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Blockwise</strong>: applies a function to multiple blocks from multiple inputs</p></li>
+<li><p><strong>Rechunk</strong>: changes chunking, without changing shape/dtype</p></li>
+</ul>
+<p>Dask introduced both of these operations.</p>
+<p><strong>Almost all</strong> array operations can be implemented using these two primitives!</p>
+</section>
+<section id="design">
+<h1>Design<a class="headerlink" href="#design" title="Link to this heading">#</a></h1>
+<p>Cubed is composed of five layers: from the storage layer at the bottom, to the Array API layer at the top:</p>
+<p><img alt="Five layer diagram" src="../../_images/design.svg" /></p>
+</section>
+<section id="core-and-primitive-operations">
+<h1>Core and Primitive Operations<a class="headerlink" href="#core-and-primitive-operations" title="Link to this heading">#</a></h1>
+<p><img alt="Core and Primitive Operations" src="../../_images/ops.dot.svg" /></p>
+</section>
+<section id="example-map-selection">
+<h1>Example: <code class="docutils literal notranslate"><span class="pre">map_selection</span></code><a class="headerlink" href="#example-map-selection" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../../_images/map_selection.svg" /></p>
+<p>Each block in the output array is read directly from one or more blocks from the input.</p>
+<p>Can cross block boundaries.</p>
+</section>
+<section id="example-reduction">
+<h1>Example: <code class="docutils literal notranslate"><span class="pre">reduction</span></code><a class="headerlink" href="#example-reduction" title="Link to this heading">#</a></h1>
+<p><img alt="" src="../../_images/reduction_new.svg" /></p>
+<p>Implemented using multiple rounds of a tree reduce operation followed by a final aggregation.</p>
+</section>
+<section id="computation-plan">
+<h1>Computation plan<a class="headerlink" href="#computation-plan" title="Link to this heading">#</a></h1>
+<p>Cubed creates a computation <em>plan</em>, which is a directed acyclic graph (DAG).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">visualize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/pydot/core.py:1826,</span> in <span class="ni">Dot.create</span><span class="nt">(self, prog, format, encoding)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1825</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1826</span>     <span class="n">stdout_data</span><span class="p">,</span> <span class="n">stderr_data</span><span class="p">,</span> <span class="n">process</span> <span class="o">=</span> <span class="n">call_graphviz</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1827</span>         <span class="n">program</span><span class="o">=</span><span class="n">prog</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1828</span>         <span class="n">arguments</span><span class="o">=</span><span class="n">arguments</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1829</span>         <span class="n">working_dir</span><span class="o">=</span><span class="n">tmp_dir</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1830</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1831</span> <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/pydot/core.py:249,</span> in <span class="ni">call_graphviz</span><span class="nt">(program, arguments, working_dir, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">247</span> <span class="n">program_with_args</span> <span class="o">=</span> <span class="p">[</span><span class="n">program</span><span class="p">]</span> <span class="o">+</span> <span class="n">arguments</span>
+<span class="ne">--&gt; </span><span class="mi">249</span> <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">250</span>     <span class="n">program_with_args</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">251</span>     <span class="n">env</span><span class="o">=</span><span class="n">env</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">252</span>     <span class="n">cwd</span><span class="o">=</span><span class="n">working_dir</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">253</span>     <span class="n">shell</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">254</span>     <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">255</span>     <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">256</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">257</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">258</span> <span class="n">stdout_data</span><span class="p">,</span> <span class="n">stderr_data</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/subprocess.py:1026,</span> in <span class="ni">Popen.__init__</span><span class="nt">(self, args, bufsize, executable, stdin, stdout, stderr, preexec_fn, close_fds, shell, cwd, env, universal_newlines, startupinfo, creationflags, restore_signals, start_new_session, pass_fds, user, group, extra_groups, encoding, errors, text, umask, pipesize, process_group)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1023</span>             <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">TextIOWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1024</span>                     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1026</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_execute_child</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">executable</span><span class="p">,</span> <span class="n">preexec_fn</span><span class="p">,</span> <span class="n">close_fds</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1027</span>                         <span class="n">pass_fds</span><span class="p">,</span> <span class="n">cwd</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1028</span>                         <span class="n">startupinfo</span><span class="p">,</span> <span class="n">creationflags</span><span class="p">,</span> <span class="n">shell</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1029</span>                         <span class="n">p2cread</span><span class="p">,</span> <span class="n">p2cwrite</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1030</span>                         <span class="n">c2pread</span><span class="p">,</span> <span class="n">c2pwrite</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1031</span>                         <span class="n">errread</span><span class="p">,</span> <span class="n">errwrite</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1032</span>                         <span class="n">restore_signals</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1033</span>                         <span class="n">gid</span><span class="p">,</span> <span class="n">gids</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">umask</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1034</span>                         <span class="n">start_new_session</span><span class="p">,</span> <span class="n">process_group</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1035</span> <span class="k">except</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1036</span>     <span class="c1"># Cleanup if the child failed starting.</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/subprocess.py:1955,</span> in <span class="ni">Popen._execute_child</span><span class="nt">(self, args, executable, preexec_fn, close_fds, pass_fds, cwd, env, startupinfo, creationflags, shell, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite, restore_signals, gid, gids, uid, umask, start_new_session, process_group)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1954</span> <span class="k">if</span> <span class="n">err_filename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1955</span>     <span class="k">raise</span> <span class="n">child_exception_type</span><span class="p">(</span><span class="n">errno_num</span><span class="p">,</span> <span class="n">err_msg</span><span class="p">,</span> <span class="n">err_filename</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1956</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;dot&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">c</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">c</span><span class="o">.</span><span class="n">visualize</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/cubed/core/array.py:217,</span> in <span class="ni">CoreArray.visualize</span><span class="nt">(self, filename, format, optimize_graph, optimize_function, show_hidden)</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span> <span class="k">def</span><span class="w"> </span><span class="nf">visualize</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span>     <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;cubed&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="mi">190</span>     <span class="n">show_hidden</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">191</span> <span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">192</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Produce a visualization of the computation graph for this array.</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">194</span><span class="sd">     Parameters</span>
+<span class="sd">   (...)    215         in a notebook), otherwise None.</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">217</span>     <span class="k">return</span> <span class="n">visualize</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span>         <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>         <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>         <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span>         <span class="n">optimize_graph</span><span class="o">=</span><span class="n">optimize_graph</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span>         <span class="n">optimize_function</span><span class="o">=</span><span class="n">optimize_function</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span>         <span class="n">show_hidden</span><span class="o">=</span><span class="n">show_hidden</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/cubed/core/array.py:343,</span> in <span class="ni">visualize</span><span class="nt">(filename, format, optimize_graph, optimize_function, show_hidden, *arrays)</span>
+<span class="g g-Whitespace">    </span><span class="mi">315</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Produce a visualization of the computation graph for multiple arrays.</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span><span class="sd"> Parameters</span>
+<span class="sd">   (...)    340     in a notebook), otherwise None.</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span> <span class="n">plan</span> <span class="o">=</span> <span class="n">arrays_to_plan</span><span class="p">(</span><span class="o">*</span><span class="n">arrays</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">343</span> <span class="k">return</span> <span class="n">plan</span><span class="o">.</span><span class="n">visualize</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span>     <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">345</span>     <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span>     <span class="n">optimize_graph</span><span class="o">=</span><span class="n">optimize_graph</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">347</span>     <span class="n">optimize_function</span><span class="o">=</span><span class="n">optimize_function</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">348</span>     <span class="n">show_hidden</span><span class="o">=</span><span class="n">show_hidden</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">349</span>     <span class="n">array_names</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">arrays</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">350</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/cubed/core/plan.py:475,</span> in <span class="ni">Plan.visualize</span><span class="nt">(self, filename, format, rankdir, optimize_graph, optimize_function, show_hidden, array_names)</span>
+<span class="g g-Whitespace">    </span><span class="mi">473</span>     <span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;svg&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">474</span> <span class="n">full_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="nb">format</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">475</span> <span class="n">gv</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">full_filename</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">477</span> <span class="k">try</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+<span class="g g-Whitespace">    </span><span class="mi">478</span>     <span class="kn">import</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">display</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/pydot/core.py:1732,</span> in <span class="ni">Dot.write</span><span class="nt">(self, path, prog, format, encoding)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1730</span>         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1731</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1732</span>     <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">prog</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1733</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1734</span>         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/pydot/core.py:1835,</span> in <span class="ni">Dot.create</span><span class="nt">(self, prog, format, encoding)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1833</span>     <span class="n">args</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+<span class="g g-Whitespace">   </span><span class="mi">1834</span>     <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">prog</span><span class="si">}</span><span class="s1">&quot; not found in path.&#39;</span>  <span class="c1"># type: ignore</span>
+<span class="ne">-&gt; </span><span class="mi">1835</span>     <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1836</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1837</span>     <span class="k">raise</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] &quot;dot&quot; not found in path.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unlike a Dask graph which is at the task level, a Cubed graph is at the Zarr array level.</p>
+</section>
+<section id="optimization">
+<h1>Optimization<a class="headerlink" href="#optimization" title="Link to this heading">#</a></h1>
+<p>Cubed will automatically optimize the graph before computing it. For example by fusing blockwise (map) operations:</p>
+<p float="left">
+  <img src="toy-unoptimized.png" height="600" />
+  <img src="toy-optimized.png" height="600"/>
+</p></section>
+<section id="optimization-an-advanced-example">
+<h1>Optimization: an advanced example<a class="headerlink" href="#optimization-an-advanced-example" title="Link to this heading">#</a></h1>
+<p>In early 2024 we implemented more optimizations to give a <strong>4.8x</strong> performance improvement on the “Quadratic Means” climate workload running on Lithops with AWS Lambda, with a <strong>1.5 TB</strong> workload completing in around <strong>100 seconds</strong></p>
+<img src="benchmarks-aws.png" width="600">
+<p>More details in <a class="reference external" href="https://medium.com/pangeo/optimizing-cubed-7a0b8f65f5b7">Optimizing Cubed</a></p>
+</section>
+<section id="memory">
+<h1>Memory<a class="headerlink" href="#memory" title="Link to this heading">#</a></h1>
+<p>Cubed models the memory used by every operation, and calculates the <code class="docutils literal notranslate"><span class="pre">projected_mem</span></code> for a task - an upper bound.</p>
+<img src="../../images/memory.svg" width="600"><p>If projected memory is more than what user specifies is allowed then an exception is raised <strong>during planning</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cubed</span>
+<span class="n">spec</span> <span class="o">=</span> <span class="n">cubed</span><span class="o">.</span><span class="n">Spec</span><span class="p">(</span><span class="n">work_dir</span><span class="o">=</span><span class="s2">&quot;tmp&quot;</span><span class="p">,</span> <span class="n">allowed_mem</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>  <span class="c1"># not enough memory!</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">asarray</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]],</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">spec</span><span class="o">=</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">asarray</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">chunks</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">spec</span><span class="o">=</span><span class="n">spec</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Projected blockwise memory (192) exceeds allowed_mem (100), including reserved_mem (0)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="peak-memory">
+<h1>Peak memory<a class="headerlink" href="#peak-memory" title="Link to this heading">#</a></h1>
+<p>Cubed measures the peak amount of memory actually used during runtime.</p>
+<p>Used to checked utilization, and improve the modelling.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">array_name</span>    <span class="n">op_name</span>  <span class="n">num_tasks</span>  <span class="n">peak_mem_delta_mb_max</span>  <span class="n">projected_mem_mb</span>  <span class="n">utilization</span>
+<span class="mi">0</span>  <span class="n">array</span><span class="o">-</span><span class="mi">003</span>    <span class="n">rechunk</span>          <span class="mi">1</span>             <span class="mf">103.727104</span>         <span class="mf">0.000064</span>          <span class="n">NaN</span>
+<span class="mi">1</span>  <span class="n">array</span><span class="o">-</span><span class="mi">004</span>  <span class="n">blockwise</span>          <span class="mi">4</span>             <span class="mf">654.286848</span>       <span class="mf">800.000008</span>     <span class="mf">0.817859</span>
+<span class="mi">2</span>  <span class="n">array</span><span class="o">-</span><span class="mi">007</span>    <span class="n">rechunk</span>          <span class="mi">1</span>             <span class="mf">103.645184</span>         <span class="mf">0.000064</span>          <span class="n">NaN</span>
+<span class="mi">3</span>  <span class="n">array</span><span class="o">-</span><span class="mi">008</span>  <span class="n">blockwise</span>          <span class="mi">4</span>             <span class="mf">654.364672</span>       <span class="mf">800.000008</span>     <span class="mf">0.817956</span>
+<span class="mi">4</span>  <span class="n">array</span><span class="o">-</span><span class="mi">009</span>  <span class="n">blockwise</span>          <span class="mi">4</span>             <span class="mf">796.954624</span>      <span class="mf">1200.000000</span>     <span class="mf">0.664129</span>
+</pre></div>
+</div>
+</section>
+<section id="runtimes">
+<h1>Runtimes<a class="headerlink" href="#runtimes" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Lithops</strong>: multi-cloud serverless computing framework</p>
+<ul>
+<li><p>Slightly more work to get started since you have to build a runtime environment first</p></li>
+<li><p>Tested on AWS Lambda and Google Cloud Functions with ~1000 workers</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p><strong>Modal</strong>: a commercial serverless platform</p>
+<ul>
+<li><p>Very easy to set up since it builds the runtime automatically</p></li>
+<li><p>Tested with ~300 workers</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p><strong>Apache Beam (Google Cloud Dataflow)</strong>: fully managed pipeline processing service</p>
+<ul>
+<li><p>Slow to spin up</p></li>
+<li><p>Only tested with ~20 workers, but very mature so will scale out</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="example-timeline">
+<h1>Example timeline<a class="headerlink" href="#example-timeline" title="Link to this heading">#</a></h1>
+<p>Adding two 20GB arrays on Lithops (AWS Lambda)</p>
+<p><img alt="Lithops timeline" src="../../_images/cubed-lithops-timeline.png" /></p>
+</section>
+<section id="scalability-and-robustness">
+<h1>Scalability and robustness<a class="headerlink" href="#scalability-and-robustness" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Serverless scales out</p>
+<ul>
+<li><p>AWS Lambda supports 1000 concurrent instances by default</p></li>
+<li><p>PyWren paper: <a class="reference external" href="https://shivaram.org/publications/pywren-socc17.pdf">https://shivaram.org/publications/pywren-socc17.pdf</a></p></li>
+</ul>
+</li>
+<li><p>Retries</p>
+<ul>
+<li><p>Each task is tried three times before failing</p></li>
+</ul>
+</li>
+<li><p>Stragglers</p>
+<ul>
+<li><p>A backup task will be launched if a task is taking significantly longer than average</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="xarray-integration">
+<h1>Xarray integration<a class="headerlink" href="#xarray-integration" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Xarray can use Cubed as its computation engine instead of Dask</p>
+<ul>
+<li><p>Just install the <a class="reference external" href="https://github.com/xarray-contrib/cubed-xarray">cubed-xarray</a> integration package</p></li>
+</ul>
+</li>
+<li><p>Cubed can use <a class="reference external" href="https://flox.readthedocs.io/en/latest/">Flox</a> for <code class="docutils literal notranslate"><span class="pre">groupby</span></code> operations</p>
+<ul>
+<li><p>Examples at https://flox.readthedocs.io/en/latest/user-stories/climatology-hourly-cubed.html</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="try-out-cubed">
+<h1>Try out Cubed!<a class="headerlink" href="#try-out-cubed" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Try it out on your use case</p>
+<ul>
+<li><p>Get started at https://cubed-dev.github.io/cubed/</p></li>
+</ul>
+</li>
+<li><p>Some examples from the Pangeo community:</p>
+<ul>
+<li><p>https://github.com/pangeo-data/distributed-array-examples</p></li>
+</ul>
+</li>
+</ul>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Cubed: an introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#idea">Idea</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#demo">Demo</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#primitives">Primitives</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#design">Design</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#core-and-primitive-operations">Core and Primitive Operations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-map-selection">Example: <code class="docutils literal notranslate"><span class="pre">map_selection</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-reduction">Example: <code class="docutils literal notranslate"><span class="pre">reduction</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-plan">Computation plan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">Optimization</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-an-advanced-example">Optimization: an advanced example</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#memory">Memory</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#peak-memory">Peak memory</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#runtimes">Runtimes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#example-timeline">Example timeline</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scalability-and-robustness">Scalability and robustness</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#xarray-integration">Xarray integration</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#try-out-cubed">Try out Cubed!</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tom White
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022-2024, Tom White.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
